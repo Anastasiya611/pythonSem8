@@ -59,7 +59,13 @@ def new_data():
         list_data = file.readlines()        
         string = input("введите строку для изменения ")
         with open(file_name, "w", encoding="utf-8") as file:
-            for string in list_data:
-                new_string = input("Введите новые данные контакта ")
-                print(list_data.replace(string,new_string))
-                file.write(list_data)
+            # for string in list_data:
+            #     new_string = input("Введите новые данные контакта ")
+            #     print(list_data.replace(string,new_string))
+            #     file.write(list_data)
+            new_string = input("Введите новые данные контакта ")
+            for element in list_data:
+                if string in element:
+                    new_list = element.replace(string,new_string)
+                    list_data = new_list
+            file.write(list_data)
